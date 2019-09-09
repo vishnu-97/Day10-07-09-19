@@ -22,8 +22,8 @@
 		    
 		  </tr>
 		  <tr>
-		    <td>Genre:</td>
-		    <td><input type="text" name="genre" required></td>
+		    <td>Subject:</td>
+		    <td><input type="text" name="subject" required></td>
 		    
 		  </tr>
 		  <tr>

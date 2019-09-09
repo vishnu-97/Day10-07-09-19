@@ -29,7 +29,7 @@
 		    
 		  </tr>
 		  <tr>
-		    <td>Genre:</td>
+		    <td>Subject:</td>
 		    <td><input type="text" name="genre" ></td>
 		    
 		  </tr>

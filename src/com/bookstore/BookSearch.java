@@ -39,7 +39,7 @@ public class BookSearch extends Books {
 				i=Integer.parseInt(request.getParameter("id"));
 			String n=request.getParameter("name");
 			String a=request.getParameter("author");
-			String g=request.getParameter("genre");
+			String g=request.getParameter("subject");
 			
 			String sub="";
 			if(i!=0) {
@@ -52,7 +52,7 @@ public class BookSearch extends Books {
 				sub+=" and author like "+"'%"+a+"%'";
 			}
 			if(g!="") {
-				sub+=" and genre like "+"'%"+g+"%'";
+				sub+=" and subject like "+"'%"+g+"%'";
 			}
 			if(i!=0 || n!="" || a!="" || g!="")
 				sub="where" +sub.substring(4);
@@ -73,7 +73,7 @@ public class BookSearch extends Books {
 					"		    <th>Id </th>\r\n" + 
 					"		    <th>Name</th>\r\n" + 
 					"		    <th>Author</th>\r\n" + 
-					"		    <th>Genre</th>\r\n" + 
+					"		    <th>Subject</th>\r\n" + 
 					"		    <th>Price</th>\r\n" + 
 					"		    <th>File</th>\r\n" + 
 					"		    \r\n" + 

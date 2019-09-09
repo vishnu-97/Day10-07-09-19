@@ -34,20 +34,13 @@ public class BookDownload extends HttpServlet {
 		if(q.lastIndexOf(".")!=-1) {
 			f=q.substring(q.lastIndexOf(".")+1).toLowerCase();//finds format
 		}
-		FileInputStream fis;
+		FileInputStream fis=null;
         
 		if(f.equals("docx") ||f.equals("doc")  ){
 			if(new File("F:\\Documents\\VISHNU Documents\\programs\\JavaTraining\\Day10_project\\WebContent\\books\\"+q).exists()) {
 				fis=new FileInputStream("F:\\Documents\\VISHNU Documents\\programs\\JavaTraining\\Day10_project\\WebContent\\books\\"+q);
 				response.setContentType("application/msword");
-				ServletOutputStream outStream = response.getOutputStream();
-		         
-		        byte[] buffer = new byte[fis.available()];
-		        fis.read(buffer);
-		        outStream.write(buffer);
-		        outStream.flush();
-		        fis.close();
-		        outStream.close();     
+				     
 			}
 			
 			
@@ -59,18 +52,22 @@ public class BookDownload extends HttpServlet {
 				
 				fis=new FileInputStream("F:\\Documents\\VISHNU Documents\\programs\\JavaTraining\\Day10_project\\WebContent\\books\\"+q);
 				response.setContentType("application/pdf");
-				response.setHeader("Content-Disposition", "attachment; filename=" + q);
-		        
-				ServletOutputStream outStream = response.getOutputStream();
-		         
-		        byte[] buffer = new byte[fis.available()];
-		        fis.read(buffer);
-		        outStream.write(buffer);
-		        fis.close();
-		        outStream.close();     
 			}
-			
 		}
+		
+		if(fis!=null) {
+			response.setHeader("Content-Disposition", "attachment; filename=" + q);
+	        
+			ServletOutputStream outStream = response.getOutputStream();
+	         
+	        byte[] buffer = new byte[fis.available()];
+	        fis.read(buffer);
+	        outStream.write(buffer);
+	        fis.close();
+	        outStream.close();     
+		}
+			
+		
 	}
 
 }

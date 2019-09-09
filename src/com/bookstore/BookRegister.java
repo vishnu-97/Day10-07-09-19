@@ -35,7 +35,7 @@ public class BookRegister extends Books {
 			pre.setInt(1, ++id);
 			pre.setString(2, request.getParameter("name"));
 			pre.setString(3, request.getParameter("author"));
-			pre.setString(4, request.getParameter("genre"));
+			pre.setString(4, request.getParameter("subject"));
 			pre.setInt(5, Integer.parseInt(request.getParameter("price")));
 			pre.setString(6, request.getParameter("file"));
 			
